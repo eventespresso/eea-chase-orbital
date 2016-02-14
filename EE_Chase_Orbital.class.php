@@ -15,6 +15,7 @@
 define( 'EE_CHASE_ORBITAL_BASENAME', plugin_basename( EE_CHASE_ORBITAL_PLUGIN_FILE ));
 define( 'EE_CHASE_ORBITAL_PATH', plugin_dir_path( __FILE__ ));
 define( 'EE_CHASE_ORBITAL_URL', plugin_dir_url( __FILE__ ));
+
 Class  EE_Chase_Orbital extends EE_Addon {
 
 	/**
@@ -28,19 +29,19 @@ Class  EE_Chase_Orbital extends EE_Addon {
 		EE_Register_Addon::register(
 			'Chase_Orbital',
 			array(
-				'version' 					=> EE_CHASE_ORBITAL_VERSION,
+				'version' => EE_CHASE_ORBITAL_VERSION,
 				'min_core_version' => '4.6.0.dev.000',
-				'main_file_path' 				=> EE_CHASE_ORBITAL_PLUGIN_FILE,
+				'main_file_path' => EE_CHASE_ORBITAL_PLUGIN_FILE,
 				// if plugin update engine is being used for auto-updates. not needed if PUE is not being used.
-				'pue_options'			=> array(
+				'pue_options' => array(
 					'pue_plugin_slug' => 'espresso_chase_orbital',
 					'plugin_basename' => EE_CHASE_ORBITAL_BASENAME,
 					'checkPeriod' => '24',
 					'use_wp_update' => FALSE,
-					),
+				),
 				'payment_method_paths' => array(
 					EE_CHASE_ORBITAL_PATH . 'payment_methods' . DS . 'Chase_Orbital',
-					),
+				),
 		));
 	}
 

@@ -38,6 +38,7 @@
  */
 define( 'EE_CHASE_ORBITAL_VERSION', '0.0.1.dev.002' );
 define( 'EE_CHASE_ORBITAL_PLUGIN_FILE',  __FILE__ );
+
 function load_espresso_chase_orbital() {
 if ( class_exists( 'EE_Addon' )) {
 	// chase_orbital version
