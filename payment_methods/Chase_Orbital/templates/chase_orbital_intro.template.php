@@ -1,0 +1,1 @@
+<?php _e( 'The Chase Orbital Payment Method description goes here...', 'event_espresso' );
