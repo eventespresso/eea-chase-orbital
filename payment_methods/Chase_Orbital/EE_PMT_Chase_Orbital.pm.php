@@ -107,7 +107,7 @@ class EE_PMT_Chase_Orbital extends EE_PMT_Base{
 					'html_label_text'=>  sprintf(__("BIN %s", "event_espresso"), $this->get_help_tab_link() ),
 					'default' => '000002'
 				)),
-				'currency'=>new EE_Checkbox_Input(
+				'currency'=>new EE_Select_Input(
 					array(
 						'840' => __( 'USD', 'event_espresso' ),
 						'124' => __( 'CAD', 'event_espresso' )
