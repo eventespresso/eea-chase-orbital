@@ -26,7 +26,6 @@ class EEG_Chase_Orbital extends EE_Onsite_Gateway{
 	protected $_bin;
 	protected $_currency;
 	protected $_accepted_cards;
-	protected $_test_mode;
 	protected $_validate_ssl_locally   = false;
 	protected $_disable_ssl_validation = true;
 	protected $_show_default_error = false;
@@ -103,7 +102,7 @@ class EEG_Chase_Orbital extends EE_Onsite_Gateway{
 			$sale->setCurlOption(CURLOPT_SSL_VERIFYPEER, 0);
 		}
 
-		$sale->setTestMode($this->_test_mode);
+		$sale->setTestMode($this->_debug_mode);
 		// $sale->setLogFile($this->log_file);
 		// $sale->setLogRequests($this->log_requests, $force = true);
 		$sale->setFields($fields);

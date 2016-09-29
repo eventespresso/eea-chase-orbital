@@ -125,14 +125,6 @@ class EE_PMT_Chase_Orbital extends EE_PMT_Base{
 						'html_label_text' => sprintf( __("Required Payment Form Fields %s", 'event_espresso'),  $this->get_help_tab_link() ),
 						'default' => array_keys( $credit_card_types )
 					)),
-				'test_transactions'=>new EE_Yes_No_Input(
-					array(
-						'html_label_text'=>  sprintf( __("Enable test mode? %s", 'event_espresso'),  $this->get_help_tab_link() ),
-						'html_help_text'=>  __("Direct transaction to test end point.", 'event_espresso'),
-						'default' => false,
-						'required' => true
-					)
-				)
 			)
 		));
 
