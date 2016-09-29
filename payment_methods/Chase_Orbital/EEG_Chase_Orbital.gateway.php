@@ -51,7 +51,7 @@ class EEG_Chase_Orbital extends EE_Onsite_Gateway{
 		$this->_default_error = __('An error occurred while processing your transaction. Please try again or contact us to complete your order.', 'event-espresso');
 
 		$card_num = preg_replace('/[^0-9]+/', '', $billing_info['credit_card']);
-		$cvv = preg_replace('/[^0-9]+/', '', $_POST[$this->id . '-card-cvc']);
+		$cvv = preg_replace('/[^0-9]+/', '', $billing_info['cvv']);
 
 		$fields = array(
 			'AccountNum' => $card_num,
