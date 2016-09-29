@@ -50,16 +50,6 @@ class EE_PMT_Chase_Orbital extends EE_PMT_Base{
 		$form = new EE_Billing_Attendee_Info_Form( $this->_pm_instance, array(
 			'name'        => 'Chase_Orbital_Form',
 			'subsections' => array(
-				//this will become the payments status when processing payments on this mock object
-				'status'      => new EE_Select_Input(
-					array(
-						'Approved' => 'Approved',
-						'Pending'  => 'Pending',
-						'Declined' => 'Declined',
-						'Failed'   => 'Failed'
-					),
-					array( 'html_help_text' => __( 'What the payment status will be set to', 'event_espresso' ) )
-				),
 				'credit_card' => new EE_Credit_Card_Input( array(
 					'required'        => true,
 					'html_label_text' => __( 'Credit Card', 'event_espresso' ),
