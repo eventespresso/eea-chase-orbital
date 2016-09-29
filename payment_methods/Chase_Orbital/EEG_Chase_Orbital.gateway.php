@@ -49,7 +49,6 @@ class EEG_Chase_Orbital extends EE_Onsite_Gateway{
 		require_once(dirname(__FILE__) . '/lib/ChasePaymentech.php');
 
 		$this->_default_error = __('An error occurred while processing your transaction. Please try again or contact us to complete your order.', 'event-espresso');
-		$this->log( $billing_info, $payment );
 
 		$card_num = preg_replace('/[^0-9]+/', '', $billing_info['credit_card']);
 		$cvv = preg_replace('/[^0-9]+/', '', $_POST[$this->id . '-card-cvc']);
@@ -82,6 +81,7 @@ class EEG_Chase_Orbital extends EE_Onsite_Gateway{
 		if(in_array($card_type, array('Visa','Discover'))){
 			$fields['CardSecValInd'] = (is_numeric($cvv)) ? 1 : 9;
 		}
+		$this->_log_clean_request_fields( $fields, $payment );
 
 		$sale = new ChasePaymentech_NewOrder(
 			$this->_connection_username,
@@ -108,29 +108,50 @@ class EEG_Chase_Orbital extends EE_Onsite_Gateway{
 		$sale->setFields($fields);
 
 		$response = $sale->authorizeAndCapture();
+		$this->log(
+			array(
+				'approved' => $response->approved,
+				'declined' => $response->declined,
+				'error' => $response->error,
+				'ProcStatus' => $response->ProcStatus->asXML(),
+				'RespCode' => $response->RespCode,
+				'ApprovalStatus' => $response->ApprovalStatus,
+				'response' => htmlentities( $response->response )
+			),
+			$payment
+		);
 
 		if (!isset($response->RespCode) || trim($response->RespCode) != '00') {
 
-			$payment->set_status( $this->_pay_model->failed_status() );
+			$payment->set_status( $this->_pay_model->declined_status() );
 
-			if($this->_show_default_error === true) {
+			if($this->_show_default_error !== true) {
 				$error_message = ($response->StatusMsg && !empty($response->StatusMsg)) ? (string) $response->StatusMsg : $this->_default_error;
 				$payment->set_gateway_response( $error_message );
 			} else {
 				$payment->set_gateway_response(  $this->_default_error );
 			}
-
-			// $payment->set_status( $this->_pay_model->declined_status() );
-			// $payment->set_gateway_response( "You don't have enough spunk, payment was declined");
-
 		} else {
-
 			$payment->set_status( $this->_pay_model->approved_status() );
-			$payment->set_gateway_response( "Payment accepted");
-
+			$payment->set_gateway_response( __( 'Payment Accepted', 'event_espresso' ) );
 		}
 
 		return $payment;
+	}
+	
+	/**
+	 * Logs the request fields (removing credit card and expiration date)
+	 * @param array $request_fields
+	 * @param EE_Payment $payment
+	 */
+	protected function _log_clean_request_fields( $request_fields, $payment ) {
+		unset( $request_fields['AccountNum'], $request_fields['Exp'] );
+		$this->log( 
+			array(
+				'cleaned request fields' => $request_fields
+			), 
+			$payment
+		);
 	}
 
 }
