@@ -97,7 +97,7 @@ class EEG_Chase_Orbital extends EE_Onsite_Gateway{
 			$sale->setCurlOption(CURLOPT_CAINFO, dirname(__FILE__) . '/lib/cacert.pem');
 		}
 
-		if($this->disable_ssl_validation){
+		if($this->_disable_ssl_validation){
 			$sale->setCurlOption(CURLOPT_SSL_VERIFYHOST, 0);
 			$sale->setCurlOption(CURLOPT_SSL_VERIFYPEER, 0);
 		}
