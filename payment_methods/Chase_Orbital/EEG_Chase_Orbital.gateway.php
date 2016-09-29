@@ -113,7 +113,7 @@ class EEG_Chase_Orbital extends EE_Onsite_Gateway{
 				'approved' => $response->approved,
 				'declined' => $response->declined,
 				'error' => $response->error,
-				'ProcStatus' => $response->ProcStatus->asXML(),
+				'ProcStatus' => $response->ProcStatus instanceof SimpleXMLElement ? $response->ProcStatus->asXML() : '',
 				'RespCode' => $response->RespCode,
 				'ApprovalStatus' => $response->ApprovalStatus,
 				'response' => htmlentities( $response->response )
