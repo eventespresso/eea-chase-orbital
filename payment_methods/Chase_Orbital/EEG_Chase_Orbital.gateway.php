@@ -110,13 +110,13 @@ class EEG_Chase_Orbital extends EE_Onsite_Gateway{
 		$response = $sale->authorizeAndCapture();
 		$this->log(
 			array(
-				'approved' => $response->approved,
-				'declined' => $response->declined,
-				'error' => $response->error,
-				'ProcStatus' => $response->ProcStatus instanceof SimpleXMLElement ? $response->ProcStatus->asXML() : '',
-				'RespCode' => $response->RespCode,
-				'ApprovalStatus' => $response->ApprovalStatus,
-				'response' => htmlentities( $response->response )
+				'approved' => (string)$response->approved,
+				'declined' => (string)$response->declined,
+				'error' => (string)$response->error,
+				'ProcStatus' => (string)$response->ProcStatus instanceof SimpleXMLElement ? $response->ProcStatus->asXML() : '',
+				'RespCode' => (string)$response->RespCode,
+				'ApprovalStatus' => (string)$response->ApprovalStatus,
+				'response' => (string)htmlentities( $response->response )
 			),
 			$payment
 		);
@@ -127,9 +127,9 @@ class EEG_Chase_Orbital extends EE_Onsite_Gateway{
 
 			if($this->_show_default_error !== true) {
 				$error_message = ($response->StatusMsg && !empty($response->StatusMsg)) ? (string) $response->StatusMsg : $this->_default_error;
-				$payment->set_gateway_response( $error_message );
+				$payment->set_gateway_response( (string)$error_message );
 			} else {
-				$payment->set_gateway_response(  $this->_default_error );
+				$payment->set_gateway_response( (string)$this->_default_error );
 			}
 		} else {
 			$payment->set_status( $this->_pay_model->approved_status() );
