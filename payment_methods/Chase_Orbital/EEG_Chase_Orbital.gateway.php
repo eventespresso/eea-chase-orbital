@@ -52,7 +52,8 @@ class EEG_Chase_Orbital extends EE_Onsite_Gateway{
 
 		$card_num = preg_replace('/[^0-9]+/', '', $billing_info['credit_card']);
 		$cvv = preg_replace('/[^0-9]+/', '', $billing_info['cvv']);
-
+        $payment_id = uniqid();
+        $payment->set_txn_id_chq_nmbr( $payment_id );
 		$fields = array(
 			'AccountNum' => $card_num,
 			'Exp' => $billing_info['exp_month'].$billing_info['exp_year'],
@@ -69,7 +70,7 @@ class EEG_Chase_Orbital extends EE_Onsite_Gateway{
 			'AVScountryCode' => (in_array($billing_info['country'], array('US', 'CA', 'GB', 'UK'))) ? $billing_info['country'] : ' ', //Chase only expects a country code for the 4 countries in the array
 			'AVSphoneNum' => substr(preg_replace('/\D/', '', $billing_info['phone']),0,14),
 			'AVSname' => substr($billing_info['first_name'] . ' ' .$billing_info['last_name'],0,30),
-			'OrderID' => uniqid() // Set your own custom Order ID, up to 22 characters in length
+			'OrderID' => $payment_id // Set your own custom Order ID, up to 22 characters in length
 		);
 
 		/*
