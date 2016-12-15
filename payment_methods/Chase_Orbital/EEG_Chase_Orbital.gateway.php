@@ -121,6 +121,7 @@ class EEG_Chase_Orbital extends EE_Onsite_Gateway{
 			),
 			$payment
 		);
+        $payment->set_details( $response );
 
 		if (!isset($response->RespCode) || trim($response->RespCode) != '00') {
 
