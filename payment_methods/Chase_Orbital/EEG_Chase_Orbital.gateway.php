@@ -24,7 +24,6 @@ class EEG_Chase_Orbital extends EE_Onsite_Gateway{
 	protected $_merchant_id;
 	protected $_terminal_id;
 	protected $_bin;
-	protected $_currency;
 	protected $_accepted_cards;
 	protected $_validate_ssl_locally   = false;
 	protected $_disable_ssl_validation = true;
@@ -57,7 +56,7 @@ class EEG_Chase_Orbital extends EE_Onsite_Gateway{
 		$fields = array(
 			'AccountNum' => $card_num,
 			'Exp' => $billing_info['exp_month'].$billing_info['exp_year'],
-			'CurrencyCode' => $this->_currency, //840: USD, 124: CAD
+			'CurrencyCode' => $payment->currency_code() === 'USD' ? '840' : '124',//840: USD, 124: CAD
 			'CurrencyExponent' => 2,
 			'CardSecValInd' => null,
 			'CardSecVal' => $cvv,
