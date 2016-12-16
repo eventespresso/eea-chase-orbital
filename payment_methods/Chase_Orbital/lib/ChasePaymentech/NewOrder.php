@@ -177,6 +177,12 @@ class ChasePaymentech_NewOrder_Response extends ChasePaymentech_Response {
 
                 }
 
+            }elseif( $xml->QuickResponse
+                     && $xml->QuickResponse->StatusMsg ) {
+                $this->approved = false;
+                $this->declined = false;
+                $this->error = true;
+                $this->StatusMsg = $xml->QuickResponse->StatusMsg;
             } else {
 
                 $this->approved = false;
