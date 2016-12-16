@@ -31,11 +31,11 @@ class EEG_Chase_Orbital extends EE_Onsite_Gateway{
 	protected $_default_error;
 
 	/**
-	 * All the currencies supported by this gateway. Add any others you like,
-	 * as contained in the esp_currency table
+	 * Chase apparently supports 160 currencies (see https://www.chasepaymentech.com/payment_gateway.html)
+     * so we'll just approximate that as "all" currencies.
 	 * @var array
 	 */
-	protected $_currencies_supported = array('USD', 'CAD');
+	protected $_currencies_supported = EE_Gateway::all_currencies_supported;
 
 	/**
 	 *
@@ -120,7 +120,7 @@ class EEG_Chase_Orbital extends EE_Onsite_Gateway{
 			),
 			$payment
 		);
-        $payment->set_details( $response );
+        $payment->set_details( wp_json_encode( $response ) );
 
 		if (!isset($response->RespCode) || trim($response->RespCode) != '00') {
 
