@@ -24,7 +24,11 @@ class EE_PMT_Chase_Orbital extends EE_PMT_Base{
     public function __construct($pm_instance = NULL) {
         require_once($this->file_folder().'EEG_Chase_Orbital.gateway.php');
         $this->_gateway = new EEG_Chase_Orbital();
-        $this->_pretty_name = __("Chase Orbital", 'event_espresso');
+        $this->_pretty_name = __('Chase Paymentech Orbital', 'event_espresso');
+        $this->_default_description = __('Please provide the following billing information.', 'event_espresso');
+        $this->_template_path = EEA_CHASE_ORBITAL_PM_PLUGIN_PATH . 'payment_methods' . DS . 'Chase_Orbital' . DS . 'templates' . DS;
+        $this->_requires_https = true;
+
         parent::__construct($pm_instance);
     }
 
@@ -36,7 +40,7 @@ class EE_PMT_Chase_Orbital extends EE_PMT_Base{
     public function help_tabs_config(){
         return array(
             $this->get_help_tab_name() => array(
-                'title' => __('Chase Orbital Settings', 'event_espresso'),
+                'title' => __('Chase Paymentech Orbital Settings', 'event_espresso'),
                 'filename' => 'chase_orbital_onsite'
             ),
         );
@@ -102,7 +106,7 @@ class EE_PMT_Chase_Orbital extends EE_PMT_Base{
                 'credit_card_types' => new EE_Checkbox_Multi_Input(
                     $credit_card_types,
                     array(
-                        'html_label_text' => sprintf( __("Required Payment Form Fields %s", 'event_espresso'),  $this->get_help_tab_link() ),
+                        'html_label_text' => sprintf( __("Card Types Supported", 'event_espresso'),  $this->get_help_tab_link() ),
                         'default' => array_keys( $credit_card_types )
                     )),
             )

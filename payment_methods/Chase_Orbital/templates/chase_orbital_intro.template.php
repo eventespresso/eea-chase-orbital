@@ -1,1 +1,1 @@
-<?php _e( 'The Chase Orbital Payment Method description goes here...', 'event_espresso' );
+<?php printf( esc_html__('Chase Paymentech Orbital is an on-site payment method for accepting credit and debit cards and is available to event organizers in many countries. An account with Chase Paymentech is required to accept payments. Need a Chase Paymentech account? %1$sClick here to sign up for a merchant account%2$s.', 'event_espresso'), '<a href="https://eventespresso.com/go/chasepaymentech/" target="_blank">','</a>' );
