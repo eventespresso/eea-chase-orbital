@@ -1,7 +1,7 @@
 {
-	"versionFile" : "eea-chase-orbital.php",
+	"versionFile" : "espresso-chase-orbital.php",
 	"slug" : "eea-chase-orbital",
-	"name" : "Event Espresso 4 CyberSource Gateway",
+	"name" : "Event Espresso 4 Chase Orbital Gateway",
 	"archiveBaseUrl" : "http://build.eventespresso.com/",
 	"archiveBasePath" : "~/www/build/",
 	"releaseFilesRemove" : [
@@ -10,7 +10,6 @@
 		"src/circle.yml"
 	],
 	"github" : true,
-    "demoee":true,
 	"awsbucket" : "",
 	"awsregion" : "",
 	"srcBuildFolderName" : "eea-chase-orbital",
