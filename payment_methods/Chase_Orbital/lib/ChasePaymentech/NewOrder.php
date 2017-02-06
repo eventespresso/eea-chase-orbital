@@ -128,7 +128,7 @@ class ChasePaymentech_NewOrder_Response extends ChasePaymentech_Response {
                 $this->approved = false;
                 $this->declined = false;
                 $this->error = true;
-                $this->StatusMsg = 'Invalid response received. Unable to parse XML response.';
+                $this->StatusMsg = esc_html__( 'Invalid response received. Unable to parse XML response.', 'event_espresso' );
                 return;
 
             }
@@ -172,7 +172,7 @@ class ChasePaymentech_NewOrder_Response extends ChasePaymentech_Response {
                     $this->approved = false;
                     $this->declined = false;
                     $this->error = true;
-                    $this->StatusMsg = 'Gateway rejected request. Gateway responded with message: '.$xml_resp->StatusMsg;
+                    $this->StatusMsg = sprintf( esc_html__('Gateway rejected request. Gateway responded with message: %1$s','event_espresso'), $xml->NewOrderResp->StatusMsg);
                     return;
 
                 }
@@ -188,7 +188,7 @@ class ChasePaymentech_NewOrder_Response extends ChasePaymentech_Response {
                 $this->approved = false;
                 $this->declined = false;
                 $this->error = true;
-                $this->StatusMsg = 'Invalid XML received.';
+                $this->StatusMsg = esc_html__('Invalid XML received','event_espresso');
                 return;
 
             }
@@ -198,7 +198,7 @@ class ChasePaymentech_NewOrder_Response extends ChasePaymentech_Response {
             $this->approved = false;
             $this->declined = false;
             $this->error = true;
-            $this->StatusMsg = 'Unable to connect to Chase Paymentech.';
+            $this->StatusMsg = esc_html__('Unable to connect to Chase Paymentech.', 'event_espresso' );
 
         }
     }
