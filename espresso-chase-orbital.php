@@ -41,7 +41,7 @@ define( 'EE_CHASE_ORBITAL_PLUGIN_FILE',  __FILE__ );
 
 function load_espresso_chase_orbital() {
 if ( class_exists( 'EE_Addon' )) {
-	// chase_orbital version 
+	// chase_orbital version  
 	require_once ( plugin_dir_path( __FILE__ ) . 'EE_Chase_Orbital.class.php' );
 	EE_Chase_Orbital::register_addon();
 }
