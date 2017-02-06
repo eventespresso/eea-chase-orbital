@@ -26,7 +26,6 @@ class EE_PMT_Chase_Orbital extends EE_PMT_Base{
         $this->_gateway = new EEG_Chase_Orbital();
         $this->_pretty_name = __('Chase Paymentech Orbital', 'event_espresso');
         $this->_default_description = __('Please provide the following billing information.', 'event_espresso');
-        $this->_template_path = EEA_CHASE_ORBITAL_PM_PLUGIN_PATH . 'payment_methods' . DS . 'Chase_Orbital' . DS . 'templates' . DS;
         $this->_requires_https = true;
 
         parent::__construct($pm_instance);
