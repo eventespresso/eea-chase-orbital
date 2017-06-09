@@ -29,19 +29,19 @@ Class  EE_Chase_Orbital extends EE_Addon {
 		EE_Register_Addon::register(
 			'Chase_Orbital',
 			array(
-				'version' => EE_CHASE_ORBITAL_VERSION,
-				'min_core_version' => '4.6.0.dev.000',
-				'main_file_path' => EE_CHASE_ORBITAL_PLUGIN_FILE,
+				'version' => EEA_CHASE_ORBITAL_VERSION,
+				'min_core_version' => EEA_CHASE_ORBITAL_MIN_CORE_VERSION,
+				'main_file_path' => EEA_CHASE_ORBITAL_PLUGIN_FILE,
                 'admin_callback' => 'additional_admin_hooks',
 				// if plugin updat/e engine is being used for auto-updates. not needed if PUE is not being used.
 				'pue_options' => array(
 					'pue_plugin_slug' => 'espresso_chase_orbital',
-					'plugin_basename' => EE_CHASE_ORBITAL_BASENAME,
+					'plugin_basename' => EEA_CHASE_ORBITAL_BASENAME,
 					'checkPeriod' => '24',
 					'use_wp_update' => FALSE,
 				),
 				'payment_method_paths' => array(
-					EE_CHASE_ORBITAL_PATH . 'payment_methods' . DS . 'Chase_Orbital',
+					EEA_CHASE_ORBITAL_PATH . 'payment_methods' . DS . 'Chase_Orbital',
 				),
 		));
 	}
@@ -72,7 +72,7 @@ Class  EE_Chase_Orbital extends EE_Addon {
 	 * @return array
 	 */
 	public function plugin_actions( $links, $file ) {
-		if ( $file == EE_CHASE_ORBITAL_BASENAME ) {
+		if ( $file == EEA_CHASE_ORBITAL_BASENAME ) {
 			// before other links
 			array_unshift( $links, '<a href="admin.php?page=espresso_payment_settings">' . __('Settings') . '</a>' );
 		}
