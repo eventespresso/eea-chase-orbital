@@ -12,9 +12,9 @@
  * ------------------------------------------------------------------------
  */
 // define the plugin directory path and URL
-define( 'EE_CHASE_ORBITAL_BASENAME', plugin_basename( EE_CHASE_ORBITAL_PLUGIN_FILE ));
-define( 'EE_CHASE_ORBITAL_PATH', plugin_dir_path( __FILE__ ));
-define( 'EE_CHASE_ORBITAL_URL', plugin_dir_url( __FILE__ ));
+define( 'EEA_CHASE_ORBITAL_BASENAME', plugin_basename( EEA_CHASE_ORBITAL_PLUGIN_FILE ));
+define( 'EEA_CHASE_ORBITAL_PATH', plugin_dir_path( __FILE__ ));
+define( 'EEA_CHASE_ORBITAL_URL', plugin_dir_url( __FILE__ ));
 
 Class  EE_Chase_Orbital extends EE_Addon {
 
