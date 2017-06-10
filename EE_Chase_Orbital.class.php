@@ -80,10 +80,6 @@ Class  EE_Chase_Orbital extends EE_Addon {
 	}
 
 
-
-
-
-
 }
 // End of file EE_Chase_Orbital.class.php
 // Location: wp-content/plugins/espresso-chase-orbital/EE_Chase_Orbital.class.php
