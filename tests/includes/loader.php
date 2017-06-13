@@ -8,4 +8,4 @@
  */
 
 // Bootstrap EE4 Addon
-require EEADDON_PLUGIN_DIR . 'espresso-chase-orbital.php';
+require EEADDON_PLUGIN_DIR . 'eea-chase-orbital.php';

@@ -5,7 +5,7 @@
  * Class  EE_Chase_Orbital
  *
  * @package			Event Espresso
- * @subpackage		espresso-chase-orbital
+ * @subpackage		eea-chase-orbital
  * @author			    Brent Christensen
  * @ version		 	$VID:$
  *
@@ -82,4 +82,4 @@ Class  EE_Chase_Orbital extends EE_Addon {
 
 }
 // End of file EE_Chase_Orbital.class.php
-// Location: wp-content/plugins/espresso-chase-orbital/EE_Chase_Orbital.class.php
+// Location: wp-content/plugins/eea-chase-orbital/EE_Chase_Orbital.class.php
