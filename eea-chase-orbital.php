@@ -3,7 +3,7 @@
   Plugin Name: Event Espresso - Chase Paymentech Orbital (EE 4.9.26+)
   Plugin URI: https://www.eventespresso.com
   Description: Chase Paymentech Orbital is an on-site payment method for Event Espresso for accepting credit and debit cards and is available to event organizers in many countries. An account with Chase Paymentech is required to accept payments.
-  Version: 1.0.0.p
+  Version: 1.0.1.rc.000
   Author: Event Espresso
   Author URI: https://www.eventespresso.com
   Copyright 2014 Event Espresso (email : support@eventespresso.com)
@@ -36,7 +36,7 @@
  *
  * ------------------------------------------------------------------------
  */
-define( 'EEA_CHASE_ORBITAL_VERSION', '1.0.0.p' );
+define( 'EEA_CHASE_ORBITAL_VERSION', '1.0.1.rc.000' );
 define( 'EEA_CHASE_ORBITAL_MIN_CORE_VERSION', '4.9.26.rc.000' );
 define( 'EEA_CHASE_ORBITAL_PLUGIN_FILE',  __FILE__ );
 
