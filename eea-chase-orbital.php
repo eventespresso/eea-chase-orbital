@@ -50,4 +50,4 @@ if ( class_exists( 'EE_Addon' )) {
 add_action( 'AHEE__EE_System__load_espresso_addons', 'load_espresso_chase_orbital' );
 
 // End of file espresso_chase_orbital.php
-// Location: wp-content/plugins/espresso-chase-orbital/espresso_chase_orbital.php
+// Location: wp-content/plugins/eea-chase-orbital/espresso_chase_orbital.php
